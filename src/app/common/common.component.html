@@ -1,0 +1,21 @@
+
+<br><br>
+<div class="row">
+    <div class="col-md-6">
+        <h2>Listado de notas</h2>
+           <ul class="list-group">
+             <li (click)="verNota(n)" class="list-group-item" *ngFor="let n of notas">{{n.id}}. {{n.title}} - {{n.materia}}</li>
+            </ul>
+            <a type="button" class="btn btn-warning btn-block" (click)="addNote()">Nueva nota</a>
+    </div>
+    <div class="col-md-6" *ngIf="ver_form">
+        <h2>Nueva nota</h2>
+        <input type="text" placeholder="Nueva nota" class="list-group-item col-md-12" [(ngModel)]="nuevanota.title"><br><br>
+        <input type="text" placeholder="Materia" class="list-group-item col-md-12" [(ngModel)]="nuevanota.materia"><br><br>
+        <div>
+              <a type="button" class="btn btn-warning col-md-3" *ngIf="editing" (click)="delete()">Eliminar</a>
+              <a type="button" class="btn btn-warning col-md-3" (click)="cancel()">Cancelar</a>
+              <a type="button" class="btn btn-warning col-md-3" (click)="createNote()">Agregar</a>
+        </div>
+    </div>
+</div>
